@@ -19,7 +19,10 @@ def _loss(w, x, t):
   return loss
 
 
-def loss(dummy):
+def loss(W):
+  # `W` はダミー変数だが、`numerical_gradient` 関数に渡した
+  # `w` は逐次変化している（関数内では、`x` 変数として定義されている）
+  # print('w :' + str(w))
   return _loss(w, x, t)
 
 
