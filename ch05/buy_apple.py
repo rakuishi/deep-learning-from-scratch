@@ -18,7 +18,7 @@ d_price = 1
 d_apple_price, d_tax = mul_tax_layer.backward(d_price)
 d_apple, d_apple_num = mul_apple_layer.backward(d_apple_price)
 
-print('price: ', int(price))
-print('d_apple: ', d_apple)
-print('d_apple_num: ', int(d_apple_num))
-print('d_tax: ', d_tax)
+print('price:', int(price))
+print('d_apple:', d_apple)
+print('d_apple_num:', int(d_apple_num))
+print('d_tax:', d_tax)
