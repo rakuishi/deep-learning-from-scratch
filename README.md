@@ -13,6 +13,14 @@ $ brew install fontconfig
 $ fc-list
 ```
 
+## 認識精度
+
+### 4.5.3
+
+認識精度 94.5%
+
+<img src="https://raw.githubusercontent.com/rakuishi/deep-learning-from-scratch/master/ch04/train_neuralnet.png" width="400">
+
 ## 参考
 
 * [ゼロから作る Deep Learning](http://www.oreilly.co.jp/books/9784873117584/)
