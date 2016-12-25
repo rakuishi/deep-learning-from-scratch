@@ -4,6 +4,7 @@ sys.path.append(os.pardir)
 import numpy as np
 import matplotlib.pyplot as plt
 from dataset.mnist import load_mnist
+from common.optimizer import Adam
 from two_layer_net import TwoLayerNet
 
 # データの読み込み
@@ -14,11 +15,12 @@ network = TwoLayerNet(input_size=784, hidden_size=50, output_size=10)
 iters_num       = 10000 # 繰り返し数
 train_size      = x_train.shape[0] # 訓練データ総数 60,000
 batch_size      = 100 # バッチ
-learning_rate   = 0.1 # 学習率
+learning_rate   = 0.001 # 学習率
 train_loss_list = []
 train_acc_list  = []
 test_acc_list   = []
 iter_per_epoch  = max(train_size / batch_size, 1) # 600
+optimizer       = Adam(lr=learning_rate)
 
 for i in range(iters_num):
   # すべての訓練データから 100 個をランダムに抽出して、訓練データと教師データを取る
@@ -27,11 +29,9 @@ for i in range(iters_num):
   t_batch = t_train[batch_mask]
 
   # 勾配を計算する
-  grad = network.gradient(x_batch, t_batch)
-
-  # パラメータを更新する（勾配法）
-  for key in ('W1', 'b1', 'W2', 'b2'):
-    network.params[key] = network.params[key] - learning_rate * grad[key]
+  grads = network.gradient(x_batch, t_batch)
+  # パラメータを更新する（Adam）
+  optimizer.update(network.params, grads)
 
   # 損失関数の値を記録用に求める
   # loss = network.loss(x_batch, t_batch)

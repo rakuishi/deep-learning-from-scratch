@@ -8,13 +8,13 @@ class TwoLayerNet:
 
   # 入力層のニューロンの数, 隠れ層のニューロンの数, 出力層のニューロンの数
   def __init__(self, input_size, hidden_size, output_size, weight_init_std=0.01):
-    # とりあえずは、重み（W1, W2）はガウス分布の乱数、
+    # 重み（W1, W2）は Xavier の初期値、
     # バイアス（b1, b2）は 0 で初期化する
     # (input_size,) * (input_size,hidden_size) * (hidden_size,output_size) = (output_size,)
     self.params = {}
-    self.params['W1'] = weight_init_std * np.random.randn(input_size, hidden_size)
+    self.params['W1'] = weight_init_std * np.random.randn(input_size, hidden_size) / np.sqrt(input_size)
     self.params['b1'] = np.zeros(hidden_size)
-    self.params['W2'] = weight_init_std * np.random.randn(hidden_size, output_size)
+    self.params['W2'] = weight_init_std * np.random.randn(hidden_size, output_size) / np.sqrt(hidden_size)
     self.params['b2'] = np.zeros(output_size)
 
   def predict(self, x):
