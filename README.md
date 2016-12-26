@@ -35,6 +35,16 @@ $ fc-list
 
 <img src="https://raw.githubusercontent.com/rakuishi/deep-learning-from-scratch/master/ch06/train_neuralnet.png" width="400">
 
+### 7.5 畳み込みニューラルネットワーク
+
+`cd ch07 && python train_convnet.py`
+
+- 認識精度: 99.3%（訓練データに対しては 99.9%）
+- Convolution/Pooling レイヤを追加したネットワーク構成
+
+<img src="https://raw.githubusercontent.com/rakuishi/deep-learning-from-scratch/master/ch07/train_convolutional_neural_network.png" width="400">
+
+
 ## 参考
 
 * [ゼロから作る Deep Learning](http://www.oreilly.co.jp/books/9784873117584/)
